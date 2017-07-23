@@ -9,7 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "bufferutil": "^3.0.1",
-    "cleverbot-node": "^0.3.10",
+    "cleverbot-node": "^0.3.11",
     "discord.js": "^11.1.0",
     "erlpack": "github:hammerandchisel/erlpack",
     "opusscript": "0.0.3",
