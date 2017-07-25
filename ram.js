@@ -53,12 +53,13 @@ client.on('message', (message) => {
  		break;
  	case prefix + 'help':
  		console.log(message.author.id + " !help");
- 		if (randomNumber <= 0){
+ 		/*if (randomNumber <= 0){
  			message.reply('I do not require help. <:maidNo:334926151229243393>');
  		}
  		else if (randomNumber > 1){
  			message.reply('I think you can figure it out on your own. Ram believes in you. <:ahegaoBestGirl:328075922932629506>');
- 		}
+ 		}*/
+ 		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !id - Returns user id (developer tool) \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
  		break;
  	case prefix + 'compliment':
  		console.log(message.author.id + " !compliment");
