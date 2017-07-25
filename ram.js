@@ -200,7 +200,7 @@ client.on('message', (message) => {
    					try{
    						const stream = ytdl(link, { filter : 'audioonly' });
    						var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
-   						dispatcher.on('end', () => {
+   						/*dispatcher.on('end', () => {
 						if (musicQueue.length != 0){
 							var link = musicQueue.pop();
    						try{
@@ -210,7 +210,7 @@ client.on('message', (message) => {
    						}
    						dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
 						}
-					});
+					});*/
    					} catch (e) {
    						message.channel.send('Invalid link, can\'t play stream.');
    						console.log(message.author.id + " Error on !play");
@@ -222,7 +222,7 @@ client.on('message', (message) => {
    			try{
    			const stream = ytdl(args[1], { filter : 'audioonly' });
    			var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
-   			dispatcher.on('end', () => {
+   			/*dispatcher.on('end', () => {
 				if (musicQueue.length != 0){
 					var link = musicQueue.pop();
    					try{
@@ -232,7 +232,7 @@ client.on('message', (message) => {
    				}
    				dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
 				}
-			});
+			});*/
    			} catch (e) {
    			message.channel.send('Invalid link, can\'t play stream.');
    			}
