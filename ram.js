@@ -63,7 +63,7 @@ client.on('message', (message) => {
  	case prefix + 'compliment':
  		console.log(message.author.id + " !compliment");
  		if (randomNumber <= 0){
- 			message.reply('Please stop doing that. <:maidJudge2:334926143784222721>');
+ 			message.reply('Please stop doing that.');
  		}
  		else if (randomNumber > 1){
  			message.reply('Compliments will only get you so far in life.');
@@ -82,7 +82,7 @@ client.on('message', (message) => {
  			message.channel.send('You must input an integer.');
  			console.log(message.author.id + " Error on !timer");
  		}
-  		window.setTimeout(timerNotify, timer * 6000);
+  		setTimeout(timerNotify, timer * 60000);
   		}
   		function timerNotify() {
     		message.channel.send('<@' + userid + '> Timer is finished.');
@@ -175,15 +175,12 @@ client.on('message', (message) => {
  		break;
  	case prefix + 'voice':
  	console.log(message.author.id + " !voice");
- 		//inVoice = true;
-  		//message.member.voiceChannel.join();
   		if (message.member.voiceChannel) {
-  			if (inVoice) {
+  			if (!inVoice) {
+  			inVoice = true; 
      		message.member.voiceChannel.join()
         	.then(connection => { // Connection is an instance of VoiceConnection
           		message.reply('I have successfully connected to the channel!');
-          		//const stream = ytdl('dummy link', { filter : 'audioonly' });
-   				//const dispatcher = connection.playStream(stream, streamOptions);
         	})
         	.catch(console.log);
         }
@@ -202,12 +199,8 @@ client.on('message', (message) => {
  					var link = musicQueue.pop(); 
    					try{
    						const stream = ytdl(link, { filter : 'audioonly' });
-   					} catch (e) {
-   						message.channel.send('Invalid link, can\'t play stream.');
-   						console.log(message.author.id + " Error on !play");
-   					}
-   					var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
-   					dispatcher.on('end', () => {
+   						var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
+   						dispatcher.on('end', () => {
 						if (musicQueue.length != 0){
 							var link = musicQueue.pop();
    						try{
@@ -218,15 +211,16 @@ client.on('message', (message) => {
    						dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
 						}
 					});
+   					} catch (e) {
+   						message.channel.send('Invalid link, can\'t play stream.');
+   						console.log(message.author.id + " Error on !play");
+   					}
    				}
    			}
    			else{
    			console.log(message.author.id + " !play " + args[1]);
    			try{
    			const stream = ytdl(args[1], { filter : 'audioonly' });
-   			} catch (e) {
-   			message.channel.send('Invalid link, can\'t play stream.');
-   			}
    			var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
    			dispatcher.on('end', () => {
 				if (musicQueue.length != 0){
@@ -239,6 +233,9 @@ client.on('message', (message) => {
    				dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
 				}
 			});
+   			} catch (e) {
+   			message.channel.send('Invalid link, can\'t play stream.');
+   			}
   			}
   		}
    		else{
@@ -272,7 +269,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 	}
 	else{
 		console.log("Ram has joined the voice channel.");
-		console.log(message.author.id + " !skip");
+		//console.log(message.author.id + " !skip");
 		inVoice = true;
 	}
 });
