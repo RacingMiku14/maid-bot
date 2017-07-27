@@ -42,7 +42,7 @@ client.on('message', (message) => {
 //}
  switch (command) {
  	case prefix + 'rem':
- 		console.log(message.author.id + " !rem");
+ 		console.log(message.author.username + " !rem");
  		randomNumber = Math.floor(Math.random()*2);
  		if (randomNumber <= 0){
  			message.reply('<:maidJudge:334926137908264960>'); // custom emoji for the server this bot is used on
@@ -52,7 +52,7 @@ client.on('message', (message) => {
  		}
  		break;
  	case prefix + 'help':
- 		console.log(message.author.id + " !help");
+ 		console.log(message.author.username + " !help");
  		/*if (randomNumber <= 0){
  			message.reply('I do not require help. <:maidNo:334926151229243393>');
  		}
@@ -62,7 +62,7 @@ client.on('message', (message) => {
  		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !id - Returns user id (developer tool) \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
  		break;
  	case prefix + 'compliment':
- 		console.log(message.author.id + " !compliment");
+ 		console.log(message.author.username + " !compliment");
  		if (randomNumber <= 0){
  			message.reply('Please stop doing that.');
  		}
@@ -71,7 +71,7 @@ client.on('message', (message) => {
  		}
  		break;
  	case prefix + 'timer':
- 		console.log(message.author.id + " !timer");
+ 		console.log(message.author.username + " !timer");
  		if (args[1] == null){
  		message.reply('You must use !timer with a set number of minutes.');
  		}
@@ -81,7 +81,7 @@ client.on('message', (message) => {
  		var timer = parseInt(args[1]);
  		} catch (e) {
  			message.channel.send('You must input an integer.');
- 			console.log(message.author.id + " Error on !timer");
+ 			console.log(message.author.username + " Error on !timer");
  		}
   		setTimeout(timerNotify, timer * 60000);
   		}
@@ -90,7 +90,7 @@ client.on('message', (message) => {
 		}
  		break;
  	case prefix + '8ball':
- 		console.log(message.author.id + " !8ball");
+ 		console.log(message.author.username + " !8ball");
  		var randomNumber = Math.floor(Math.random()*20);
  		switch (randomNumber) {
  			case 0:
@@ -155,27 +155,28 @@ client.on('message', (message) => {
  		}
  		break;
  	case prefix + 'id':
- 		console.log(message.author.id + " !id");
+ 		console.log(message.author.username + " !id");
  		message.reply(message.author.id);
  		break;
  	case prefix + 'delete':
- 		console.log(message.author.id + " !delete");
  		if (args[1] == null){
+ 		console.log(message.author.username + " !delete");
  		var messagecount = 1;
   		message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
  		}
  		else{
+ 		console.log(message.author.username + " !delete" + args[1]);
  		try{
  		var messagecount = parseInt(args[1]);
  		} catch (e) {
  			message.channel.send('You must input an integer.');
- 			console.log(message.author.id + " Error on !delete");
+ 			console.log(message.author.username + " Error on !delete");
  		}
   		message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
   		}
  		break;
  	case prefix + 'voice':
- 	console.log(message.author.id + " !voice");
+ 	console.log(message.author.username + " !voice");
   		if (message.member.voiceChannel) {
   			if (!inVoice) {
   			inVoice = true; 
@@ -195,7 +196,7 @@ client.on('message', (message) => {
  	case prefix + 'play':
  		if (inVoice){
  			if (args[1] == null){ // check if !play contains a link argument
- 			console.log(message.author.id + " !play");
+ 			console.log(message.author.username + " !play");
  				if (musicQueue.length != 0){
  					var link = musicQueue.pop(); 
    					try{
@@ -218,12 +219,12 @@ client.on('message', (message) => {
 			});
    					} catch (e) {
    						message.channel.send('Invalid link, can\'t play stream.');
-   						console.log(message.author.id + " Error on !play");
+   						console.log(message.author.username + " Error on !play");
    					}
    				}
    			}
    			else{
-   			console.log(message.author.id + " !play " + args[1]);
+   			console.log(message.author.username + " !play " + args[1]);
    			try{
    			var stream = ytdl(args[1], { filter : 'audioonly' });
    			var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
@@ -244,6 +245,7 @@ client.on('message', (message) => {
 			});
    			} catch (e) {
    			message.channel.send('Invalid link, can\'t play stream.');
+   			console.log(message.author.username + " Error on !play");
    			}
   			}
   		}
@@ -257,11 +259,11 @@ client.on('message', (message) => {
    		}
    		else{
    		musicQueue.push(args[1]);
-   		console.log(message.author.id + " !queue " + args[1]);
+   		console.log(message.author.username + " !queue " + args[1]);
    	}
    		break;
    	case prefix + 'skip':
-   		console.log(message.author.id + " !skip");
+   		console.log(message.author.username + " !skip");
    		message.reply('My creator is too lazy to copy/paste, just use !play to skip.');
  }
 });
