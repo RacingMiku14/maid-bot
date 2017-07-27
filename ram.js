@@ -199,19 +199,23 @@ client.on('message', (message) => {
  				if (musicQueue.length != 0){
  					var link = musicQueue.pop(); 
    					try{
-   						const stream = ytdl(link, { filter : 'audioonly' });
+   						var stream = ytdl(link, { filter : 'audioonly' });
    						var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
-   						/*dispatcher.on('end', () => {
+   						dispatcher.on('end', () => {
+   						console.log("VoiceDispatcher finished current song.");
+   						console.log("Songs left in queue: " + musicQueue.length);
 						if (musicQueue.length != 0){
 							var link = musicQueue.pop();
-   						try{
-   							const stream = ytdl(link, { filter : 'audioonly' });
-   						} catch (e) {
-   						message.channel.send('Invalid link, can\'t play stream.');
-   						}
-   						dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
-						}
-					});*/
+							console.log("Next song in track: " + link);
+   							try{
+   								stream = ytdl(link, { filter : 'audioonly' });
+   							} catch (e) {
+   						console.log(e);
+   					message.channel.send('Invalid link, can\'t play stream.');
+   				}
+   				dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
+				}
+			});
    					} catch (e) {
    						message.channel.send('Invalid link, can\'t play stream.');
    						console.log(message.author.id + " Error on !play");
@@ -221,19 +225,23 @@ client.on('message', (message) => {
    			else{
    			console.log(message.author.id + " !play " + args[1]);
    			try{
-   			const stream = ytdl(args[1], { filter : 'audioonly' });
+   			var stream = ytdl(args[1], { filter : 'audioonly' });
    			var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
-   			/*dispatcher.on('end', () => {
+   			dispatcher.on('end', () => {
+   				console.log("VoiceDispatcher finished current song.");
+   				console.log("Songs left in queue: " + musicQueue.length);
 				if (musicQueue.length != 0){
 					var link = musicQueue.pop();
+					console.log("Next song in track: " + link);
    					try{
-   						const stream = ytdl(link, { filter : 'audioonly' });
+   						stream = ytdl(link, { filter : 'audioonly' });
    					} catch (e) {
+   					console.log(e);
    					message.channel.send('Invalid link, can\'t play stream.');
    				}
    				dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
 				}
-			});*/
+			});
    			} catch (e) {
    			message.channel.send('Invalid link, can\'t play stream.');
    			}
