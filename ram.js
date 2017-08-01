@@ -44,10 +44,10 @@ client.on('message', (message) => {
  	case prefix + 'rem':
  		console.log(message.author.username + " !rem");
  		randomNumber = Math.floor(Math.random()*2);
- 		if (randomNumber <= 0){
+ 		if (randomNumber == 0){
  			message.reply('<:maidJudge:334926137908264960>'); // custom emoji for the server this bot is used on
  		}
- 		else if (randomNumber > 1){
+ 		else if (randomNumber == 1){
  			message.reply('!rem does not work. Neither does !ram.');
  		}
  		break;
@@ -62,11 +62,12 @@ client.on('message', (message) => {
  		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !id - Returns user id (developer tool) \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
  		break;
  	case prefix + 'compliment':
- 		console.log(message.author.username + " !compliment");
- 		if (randomNumber <= 0){
+ 		randomNumber = Math.floor(Math.random()*2);
+ 		console.log(message.author.username + " !compliment" + randomNumber);
+ 		if (randomNumber == 0){
  			message.reply('Please stop doing that.');
  		}
- 		else if (randomNumber > 1){
+ 		else if (randomNumber == 1){
  			message.reply('Compliments will only get you so far in life.');
  		}
  		break;
