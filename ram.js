@@ -42,14 +42,20 @@ client.on('message', (message) => {
 //}
  switch (command) {
  	case prefix + 'rem':
- 		console.log(message.author.username + " !rem");
+ 		/*console.log(message.author.username + " !rem");
  		randomNumber = Math.floor(Math.random()*2);
  		if (randomNumber == 0){
  			message.reply('<:maidJudge:334926137908264960>'); // custom emoji for the server this bot is used on
  		}
  		else if (randomNumber == 1){
  			message.reply('!rem does not work. Neither does !ram.');
- 		}
+ 		}*/
+ 		randomNumber = Math.floor(Math.random()*205);
+ 		rem_string = "/Users/Kevin Le/Pictures/Rem/Rem (" + randomNumber + ").jpg";
+ 		console.log(message.author.username + " !rem, " + rem_string);
+ 		message.reply({
+ 			file: rem_string
+ 		});
  		break;
  	case prefix + 'help':
  		console.log(message.author.username + " !help");
@@ -59,7 +65,7 @@ client.on('message', (message) => {
  		else if (randomNumber > 1){
  			message.reply('I think you can figure it out on your own. Ram believes in you. <:ahegaoBestGirl:328075922932629506>');
  		}*/
- 		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !id - Returns user id (developer tool) \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
+ 		message.reply('\n !help - Review list of commands \n !rem - Random picture of my favorite bot \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !id - Returns user id (developer tool) \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
  		break;
  	case prefix + 'compliment':
  		randomNumber = Math.floor(Math.random()*2);
