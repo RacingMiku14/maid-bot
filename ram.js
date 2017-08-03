@@ -53,7 +53,7 @@ client.on('message', (message) => {
  		randomNumber = Math.floor(Math.random()*205);
  		rem_string = "/Users/Kevin Le/Pictures/Rem/Rem (" + randomNumber + ").jpg";
  		console.log(message.author.username + " !rem, " + rem_string);
- 		message.reply({
+ 		message.channel.send({
  			file: rem_string
  		});
  		break;
@@ -162,8 +162,13 @@ client.on('message', (message) => {
  		}
  		break;
  	case prefix + 'id':
+ 		if (args[1] == null){
  		console.log(message.author.username + " !id");
  		message.reply(message.author.id);
+ 	}
+ 		else{
+ 			username = args[1];
+ 		}
  		break;
  	case prefix + 'delete':
  		if (args[1] == null){
@@ -281,14 +286,50 @@ client.on('ready', () => {
 });
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
-	if (newMember.voiceChannel == null){
-		console.log("Ram has left the voice channel.");
-		inVoice = false;
-	}
-	else{
+	if (newMember.voiceChannel != null && newMember.id == 326621941844934657){
 		console.log("Ram has joined the voice channel.");
 		//console.log(message.author.id + " !skip");
 		inVoice = true;
+	}
+	else if (newMember.voiceChannel != null && newMember.id == 318347511033233408){
+		console.log("Niko voice state update.");
+
+		if (!inVoice) {
+  			inVoice = true; 
+     		newMember.voiceChannel.join()
+        	.then(connection => { // Connection is an instance of VoiceConnection
+          		console.log("Ram has joined the voice channel.");
+        	})
+        	.catch(console.log);
+        }
+
+		console.log("Easter egg -!play www.youtube.com/watch?v=V1dzNzifPdY");
+   			try{
+   			var stream = ytdl('www.youtube.com/watch?v=V1dzNzifPdY', { filter : 'audioonly' });
+   			var dispatcher = newMember.guild.voiceConnection.playStream(stream, streamOptions);
+   			dispatcher.on('end', () => {
+   				console.log("VoiceDispatcher finished current song.");
+   				console.log("Songs left in queue: " + musicQueue.length);
+				if (musicQueue.length != 0){
+					var link = musicQueue.pop();
+					console.log("Next song in track: " + link);
+   					try{
+   						stream = ytdl(link, { filter : 'audioonly' });
+   					} catch (e) {
+   					console.log(e);
+   					//message.channel.send('Invalid link, can\'t play stream.');
+   				}
+   				dispatcher = newMember.guild.voiceConnection.playStream(stream, streamOptions);
+				}
+			});
+   			} catch (e) {
+   			//message.channel.send('Invalid link, can\'t play stream.');
+   			console.log(e);
+   			}
+	}
+	else{
+		console.log("Ram has left the voice channel.");
+		inVoice = false;
 	}
 });
 
