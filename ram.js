@@ -4,6 +4,9 @@ const client = new Discord.Client();
 var config = require('./config.json');
 client.login(config.token);
 
+var dt = new Date();
+var utcDate = dt.toLocaleTimeString();
+
 var inVoice = false;
 var musicQueue = [];
 const ytdl = require('ytdl-core');
@@ -34,6 +37,9 @@ client.on('message', (message) => {
 
   var command = args[0].toLowerCase();
   var randomNumber = 0;
+
+  dt = new Date();
+  utcDate = dt.toLocaleTimeString();
   // Exit and stop if it's not there
  //if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -52,24 +58,24 @@ client.on('message', (message) => {
  		}*/
  		randomNumber = Math.floor(Math.random()*205);
  		rem_string = "/Users/Kevin Le/Pictures/Rem/Rem (" + randomNumber + ").jpg";
- 		console.log(message.author.username + " !rem, " + rem_string);
+ 		console.log(utcDate + " - " + message.author.username + " !rem, " + rem_string);
  		message.channel.send({
  			file: rem_string
  		});
  		break;
  	case prefix + 'help':
- 		console.log(message.author.username + " !help");
+ 		console.log(utcDate + " - " + message.author.username + " !help");
  		/*if (randomNumber <= 0){
  			message.reply('I do not require help. <:maidNo:334926151229243393>');
  		}
  		else if (randomNumber > 1){
  			message.reply('I think you can figure it out on your own. Ram believes in you. <:ahegaoBestGirl:328075922932629506>');
  		}*/
- 		message.reply('\n !help - Review list of commands \n !rem - Random picture of my favorite bot \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !id - Returns user id (developer tool) \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
+ 		message.reply('\n !help - Review list of commands \n !rem - Random picture of my favorite bot \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
  		break;
  	case prefix + 'compliment':
  		randomNumber = Math.floor(Math.random()*2);
- 		console.log(message.author.username + " !compliment" + randomNumber);
+ 		console.log(utcDate + " - " + message.author.username + " !compliment" + randomNumber);
  		if (randomNumber == 0){
  			message.reply('Please stop doing that.');
  		}
@@ -78,7 +84,7 @@ client.on('message', (message) => {
  		}
  		break;
  	case prefix + 'timer':
- 		console.log(message.author.username + " !timer");
+ 		console.log(utcDate + " - " + message.author.username + " !timer");
  		if (args[1] == null){
  		message.reply('You must use !timer with a set number of minutes.');
  		}
@@ -97,7 +103,7 @@ client.on('message', (message) => {
 		}
  		break;
  	case prefix + '8ball':
- 		console.log(message.author.username + " !8ball");
+ 		console.log(utcDate + " - " + message.author.username + " !8ball");
  		var randomNumber = Math.floor(Math.random()*20);
  		switch (randomNumber) {
  			case 0:
@@ -161,7 +167,7 @@ client.on('message', (message) => {
  			message.reply('Very doubtful.');
  		}
  		break;
- 	case prefix + 'id':
+ 	/*case prefix + 'id':
  		if (args[1] == null){
  		console.log(message.author.username + " !id");
  		message.reply(message.author.id);
@@ -169,15 +175,15 @@ client.on('message', (message) => {
  		else{
  			username = args[1];
  		}
- 		break;
+ 		break;*/
  	case prefix + 'delete':
  		if (args[1] == null){
- 		console.log(message.author.username + " !delete");
+ 		console.log(utcDate + " - " + message.author.username + " !delete");
  		var messagecount = 1;
   		message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
  		}
  		else{
- 		console.log(message.author.username + " !delete" + args[1]);
+ 		console.log(utcDate + " - " + message.author.username + " !delete" + args[1]);
  		try{
  		var messagecount = parseInt(args[1]);
  		} catch (e) {
@@ -188,7 +194,9 @@ client.on('message', (message) => {
   		}
  		break;
  	case prefix + 'voice':
- 	console.log(message.author.username + " !voice");
+ 	//var dt = new Date();
+	//var utcDate = dt.toUTCString();
+ 	console.log(utcDate + " - " + message.author.username + " !voice");
   		if (message.member.voiceChannel) {
   			if (!inVoice) {
   			inVoice = true; 
@@ -208,7 +216,7 @@ client.on('message', (message) => {
  	case prefix + 'play':
  		if (inVoice){
  			if (args[1] == null){ // check if !play contains a link argument
- 			console.log(message.author.username + " !play");
+ 			console.log(utcDate + " - " + message.author.username + " !play");
  				if (musicQueue.length != 0){
  					var link = musicQueue.pop(); 
    					try{
@@ -236,7 +244,7 @@ client.on('message', (message) => {
    				}
    			}
    			else{
-   			console.log(message.author.username + " !play " + args[1]);
+   			console.log(utcDate + " - " + message.author.username + " !play " + args[1]);
    			try{
    			var stream = ytdl(args[1], { filter : 'audioonly' });
    			var dispatcher = message.guild.voiceConnection.playStream(stream, streamOptions);
@@ -271,28 +279,31 @@ client.on('message', (message) => {
    		}
    		else{
    		musicQueue.push(args[1]);
-   		console.log(message.author.username + " !queue " + args[1]);
+   		console.log(utcDate + " - " + message.author.username + " !queue " + args[1]);
    	}
    		break;
    	case prefix + 'skip':
-   		console.log(message.author.username + " !skip");
+   		console.log(utcDate + " - " + message.author.username + " !skip");
    		message.reply('My creator is too lazy to copy/paste, just use !play to skip.');
  }
 });
 
 client.on('ready', () => {
-	console.log("Maid bot online.");
-	client.user.setGame('maid bot in training');
+	console.log(utcDate + " - " + "Maid bot online.");
+	client.user.setGame('29 Quangs Later');
 });
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
-	if (newMember.voiceChannel != null && newMember.id == 326621941844934657){
-		console.log("Ram has joined the voice channel.");
+  dt = new Date();
+  utcDate = dt.toLocaleTimeString();
+  
+	if (newMember.voiceChannel != null && newMember.id == 326621941844934657  && !newMember.selfMute && !newMember.selfDeaf && !newMember.serverMute && !newMember.serverDeaf){
+		console.log(utcDate + " - " + "Ram has joined the voice channel.");
 		//console.log(message.author.id + " !skip");
 		inVoice = true;
 	}
-	else if (newMember.voiceChannel != null && newMember.id == 318347511033233408){
-		console.log("Niko voice state update.");
+	else if (newMember.voiceChannel != null && newMember.id == 341494583739285507 && !newMember.selfMute && !newMember.selfDeaf && !newMember.serverMute && !newMember.serverDeaf){
+		console.log(utcDate + " - " + "Niko voice state update.");
 
 		if (!inVoice) {
   			inVoice = true; 
@@ -327,9 +338,15 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
    			console.log(e);
    			}
 	}
-	else{
-		console.log("Ram has left the voice channel.");
+	else if (oldMember.id == 326621941844934657 && newMember == null){
+		console.log(utcDate + " - " + "Ram has left the voice channel.");
 		inVoice = false;
+	}
+	else if (newMember.voiceChannel == null){
+		console.log(utcDate + " - " + oldMember.user.username + " has left the voice channel.");
+	}
+	else if (newMember.voiceChannel != null && !newMember.selfMute && !newMember.selfDeaf && !newMember.serverMute && !newMember.serverDeaf){
+		console.log(utcDate + " - " + newMember.user.username + " has joined the voice channel or unmuted.");
 	}
 });
 
