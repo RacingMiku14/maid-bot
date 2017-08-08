@@ -56,11 +56,115 @@ client.on('message', (message) => {
  		else if (randomNumber == 1){
  			message.reply('!rem does not work. Neither does !ram.');
  		}*/
- 		randomNumber = Math.floor(Math.random()*205);
- 		rem_string = "/Users/Kevin Le/Pictures/Rem/Rem (" + randomNumber + ").jpg";
- 		console.log(utcDate + " - " + message.author.username + " !rem, " + rem_string);
+ 		randomNumber = Math.floor(Math.random()*155);
+ 		img_string = "/Users/Kevin Le/Pictures/rem/rem (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !rem, " + img_string);
  		message.channel.send({
- 			file: rem_string
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'emilia':
+ 		randomNumber = Math.floor(Math.random()*18);
+ 		img_string = "/Users/Kevin Le/Pictures/emilia/emilia (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !emilia, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'racingmiku':
+ 		randomNumber = Math.floor(Math.random()*35);
+ 		img_string = "/Users/Kevin Le/Pictures/racingmiku/racingmiku (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !racingmiku, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'biribiri':
+ 		randomNumber = Math.floor(Math.random()*16);
+ 		img_string = "/Users/Kevin Le/Pictures/biribiri/biribiri (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !biribiri, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'fate':
+ 		randomNumber = Math.floor(Math.random()*213);
+ 		img_string = "/Users/Kevin Le/Pictures/fate/fate (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !fate, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'idol':
+ 		randomNumber = Math.floor(Math.random()*119);
+ 		img_string = "/Users/Kevin Le/Pictures/idol/idol (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !idol, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'misc':
+ 		randomNumber = Math.floor(Math.random()*255);
+ 		img_string = "/Users/Kevin Le/Pictures/misc/misc (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !misc, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'overwatch':
+ 		randomNumber = Math.floor(Math.random()*54);
+ 		img_string = "/Users/Kevin Le/Pictures/overwatch/overwatch (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !overwatch, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'miku':
+ 		randomNumber = Math.floor(Math.random()*35);
+ 		img_string = "/Users/Kevin Le/Pictures/miku/miku (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !miku, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'yourname':
+ 		randomNumber = Math.floor(Math.random()*29);
+ 		img_string = "/Users/Kevin Le/Pictures/yourname/yourname (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !yourname, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'madoka':
+ 		randomNumber = Math.floor(Math.random()*29);
+ 		img_string = "/Users/Kevin Le/Pictures/madoka/madoka (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !madoka, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'sumo':
+ 		randomNumber = Math.floor(Math.random()*28);
+ 		img_string = "/Users/Kevin Le/Pictures/sumo/sumo (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !sumo, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'makoto':
+ 		randomNumber = Math.floor(Math.random()*46);
+ 		img_string = "/Users/Kevin Le/Pictures/makoto/makoto (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !makoto, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+  	case prefix + 'anya':
+ 		randomNumber = Math.floor(Math.random()*71);
+ 		img_string = "/Users/Kevin Le/Pictures/anya/anya (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !anya, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
  		});
  		break;
  	case prefix + 'help':
@@ -71,7 +175,7 @@ client.on('message', (message) => {
  		else if (randomNumber > 1){
  			message.reply('I think you can figure it out on your own. Ram believes in you. <:ahegaoBestGirl:328075922932629506>');
  		}*/
- 		message.reply('\n !help - Review list of commands \n !rem - Random picture of my favorite bot \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n There are other commands not listed.');
+ 		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n \n Try maid-bot\'s new image commands! \n !rem  !emilia  !racingmiku  !biribiri \n !fate  !idol  !misc  !overwatch \n !miku  !yourname  !madoka  !pkmn \n !makoto  !anya');
  		break;
  	case prefix + 'compliment':
  		randomNumber = Math.floor(Math.random()*2);
@@ -296,7 +400,7 @@ client.on('ready', () => {
 client.on('voiceStateUpdate', (oldMember, newMember) => {
   dt = new Date();
   utcDate = dt.toLocaleTimeString();
-  
+
 	if (newMember.voiceChannel != null && newMember.id == 326621941844934657  && !newMember.selfMute && !newMember.selfDeaf && !newMember.serverMute && !newMember.serverDeaf){
 		console.log(utcDate + " - " + "Ram has joined the voice channel.");
 		//console.log(message.author.id + " !skip");
@@ -342,29 +446,10 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 		console.log(utcDate + " - " + "Ram has left the voice channel.");
 		inVoice = false;
 	}
-	else if (newMember.voiceChannel == null){
+	/*else if (newMember.voiceChannel == null){
 		console.log(utcDate + " - " + oldMember.user.username + " has left the voice channel.");
 	}
 	else if (newMember.voiceChannel != null && !newMember.selfMute && !newMember.selfDeaf && !newMember.serverMute && !newMember.serverDeaf){
 		console.log(utcDate + " - " + newMember.user.username + " has joined the voice channel or unmuted.");
-	}
+	}*/
 });
-
-/*
-voiceChannel.on('speaking', (user, speaking) => {
-
-	// the audio has finished playing, so remove it from the queue and start playing the next song
-	if (!speaking && ytAudioQueue.length > 1) {
-		ytAudioQueue.pop();
-
-		if (voiceChannel == null) {
-			JoinCommand(bot.channels.find(val => val.type === 'voice').name).then(function() {
-				PlayStream(ytAudioQueue.first);
-			});
-		}
-		else {
-			PlayStream(ytAudioQueue.first);
-		}
-	}
-});
-*/
