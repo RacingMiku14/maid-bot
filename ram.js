@@ -56,7 +56,7 @@ client.on('message', (message) => {
  		else if (randomNumber == 1){
  			message.reply('!rem does not work. Neither does !ram.');
  		}*/
- 		randomNumber = Math.floor(Math.random()*155);
+ 		randomNumber = Math.floor(Math.random()*157);
  		img_string = "/Users/Kevin Le/Pictures/rem/rem (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !rem, " + img_string);
  		message.channel.send({
@@ -88,7 +88,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'fate':
- 		randomNumber = Math.floor(Math.random()*213);
+ 		randomNumber = Math.floor(Math.random()*215);
  		img_string = "/Users/Kevin Le/Pictures/fate/fate (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !fate, " + img_string);
  		message.channel.send({
@@ -96,7 +96,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'idol':
- 		randomNumber = Math.floor(Math.random()*119);
+ 		randomNumber = Math.floor(Math.random()*122);
  		img_string = "/Users/Kevin Le/Pictures/idol/idol (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !idol, " + img_string);
  		message.channel.send({
@@ -104,7 +104,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'misc':
- 		randomNumber = Math.floor(Math.random()*255);
+ 		randomNumber = Math.floor(Math.random()*247);
  		img_string = "/Users/Kevin Le/Pictures/misc/misc (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !misc, " + img_string);
  		message.channel.send({
@@ -136,7 +136,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'madoka':
- 		randomNumber = Math.floor(Math.random()*29);
+ 		randomNumber = Math.floor(Math.random()*30);
  		img_string = "/Users/Kevin Le/Pictures/madoka/madoka (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !madoka, " + img_string);
  		message.channel.send({
@@ -144,7 +144,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'sumo':
- 		randomNumber = Math.floor(Math.random()*28);
+ 		randomNumber = Math.floor(Math.random()*29);
  		img_string = "/Users/Kevin Le/Pictures/sumo/sumo (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !sumo, " + img_string);
  		message.channel.send({
@@ -152,7 +152,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'makoto':
- 		randomNumber = Math.floor(Math.random()*46);
+ 		randomNumber = Math.floor(Math.random()*92);
  		img_string = "/Users/Kevin Le/Pictures/makoto/makoto (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !makoto, " + img_string);
  		message.channel.send({
@@ -167,6 +167,14 @@ client.on('message', (message) => {
  			file: img_string
  		});
  		break;
+ 	case prefix + 'persona':
+ 		randomNumber = Math.floor(Math.random()*81);
+ 		img_string = "/Users/Kevin Le/Pictures/persona/persona (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !persona, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
  	case prefix + 'help':
  		console.log(utcDate + " - " + message.author.username + " !help");
  		/*if (randomNumber <= 0){
@@ -175,7 +183,7 @@ client.on('message', (message) => {
  		else if (randomNumber > 1){
  			message.reply('I think you can figure it out on your own. Ram believes in you. <:ahegaoBestGirl:328075922932629506>');
  		}*/
- 		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n \n Try maid-bot\'s new image commands! \n !rem  !emilia  !racingmiku  !biribiri \n !fate  !idol  !misc  !overwatch \n !miku  !yourname  !madoka  !pkmn \n !makoto  !anya');
+ 		message.reply('\n !help - Review list of commands \n !timer - Set a timer using minutes \n !8ball - Ask a yes/no question \n !delete - Deletes user-given number of messages (developer tool) \n !voice - Joins/leaves current voice channel \n !play - Plays next song in queue or given link \n !queue - Adds song to queue (LIFO order) \n \n Try maid-bot\'s new image commands! \n !rem  !emilia  !racingmiku  !biribiri \n !fate  !idol  !misc  !overwatch \n !miku  !yourname  !madoka  !pkmn \n !persona  !makoto  !anya');
  		break;
  	case prefix + 'compliment':
  		randomNumber = Math.floor(Math.random()*2);
@@ -394,7 +402,7 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log(utcDate + " - " + "Maid bot online.");
-	client.user.setGame('29 Quangs Later');
+	client.user.setGame('!help for new commands');
 });
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
