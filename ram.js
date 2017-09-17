@@ -56,7 +56,7 @@ client.on('message', (message) => {
  		else if (randomNumber == 1){
  			message.reply('!rem does not work. Neither does !ram.');
  		}*/
- 		randomNumber = Math.floor(Math.random()*157);
+ 		randomNumber = Math.floor(Math.random()*253);
  		img_string = "/Users/Kevin Le/Pictures/rem/rem (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !rem, " + img_string);
  		message.channel.send({
@@ -64,7 +64,7 @@ client.on('message', (message) => {
  		});
  		break;
  	case prefix + 'emilia':
- 		randomNumber = Math.floor(Math.random()*19);
+ 		randomNumber = Math.floor(Math.random()*32);
  		img_string = "/Users/Kevin Le/Pictures/emilia/emilia (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !emilia, " + img_string);
  		message.channel.send({
@@ -72,7 +72,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'racingmiku':
- 		randomNumber = Math.floor(Math.random()*35);
+ 		randomNumber = Math.floor(Math.random()*36);
  		img_string = "/Users/Kevin Le/Pictures/racingmiku/racingmiku (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !racingmiku, " + img_string);
  		message.channel.send({
@@ -80,7 +80,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'biribiri':
- 		randomNumber = Math.floor(Math.random()*16);
+ 		randomNumber = Math.floor(Math.random()*45);
  		img_string = "/Users/Kevin Le/Pictures/biribiri/biribiri (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !biribiri, " + img_string);
  		message.channel.send({
@@ -88,7 +88,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'fate':
- 		randomNumber = Math.floor(Math.random()*216);
+ 		randomNumber = Math.floor(Math.random()*88);
  		img_string = "/Users/Kevin Le/Pictures/fate/fate (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !fate, " + img_string);
  		message.channel.send({
@@ -96,7 +96,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'idol':
- 		randomNumber = Math.floor(Math.random()*123);
+ 		randomNumber = Math.floor(Math.random()*125);
  		img_string = "/Users/Kevin Le/Pictures/idol/idol (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !idol, " + img_string);
  		message.channel.send({
@@ -104,7 +104,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'misc':
- 		randomNumber = Math.floor(Math.random()*264);
+ 		randomNumber = Math.floor(Math.random()*355);
  		img_string = "/Users/Kevin Le/Pictures/misc/misc (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !misc, " + img_string);
  		message.channel.send({
@@ -112,7 +112,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'overwatch':
- 		randomNumber = Math.floor(Math.random()*54);
+ 		randomNumber = Math.floor(Math.random()*59);
  		img_string = "/Users/Kevin Le/Pictures/overwatch/overwatch (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !overwatch, " + img_string);
  		message.channel.send({
@@ -120,7 +120,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'miku':
- 		randomNumber = Math.floor(Math.random()*37);
+ 		randomNumber = Math.floor(Math.random()*48);
  		img_string = "/Users/Kevin Le/Pictures/miku/miku (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !miku, " + img_string);
  		message.channel.send({
@@ -136,7 +136,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'madoka':
- 		randomNumber = Math.floor(Math.random()*30);
+ 		randomNumber = Math.floor(Math.random()*33);
  		img_string = "/Users/Kevin Le/Pictures/madoka/madoka (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !madoka, " + img_string);
  		message.channel.send({
@@ -144,7 +144,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'sumo':
- 		randomNumber = Math.floor(Math.random()*30);
+ 		randomNumber = Math.floor(Math.random()*31);
  		img_string = "/Users/Kevin Le/Pictures/sumo/sumo (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !sumo, " + img_string);
  		message.channel.send({
@@ -152,7 +152,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'makoto':
- 		randomNumber = Math.floor(Math.random()*91);
+ 		randomNumber = Math.floor(Math.random()*117);
  		img_string = "/Users/Kevin Le/Pictures/makoto/makoto (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !makoto, " + img_string);
  		message.channel.send({
@@ -160,7 +160,7 @@ client.on('message', (message) => {
  		});
  		break;
   	case prefix + 'anya':
- 		randomNumber = Math.floor(Math.random()*77);
+ 		randomNumber = Math.floor(Math.random()*78);
  		img_string = "/Users/Kevin Le/Pictures/anya/anya (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !anya, " + img_string);
  		message.channel.send({
@@ -168,9 +168,57 @@ client.on('message', (message) => {
  		});
  		break;
  	case prefix + 'persona':
- 		randomNumber = Math.floor(Math.random()*118);
+ 		randomNumber = Math.floor(Math.random()*201);
  		img_string = "/Users/Kevin Le/Pictures/persona/persona (" + randomNumber + ").jpg";
  		console.log(utcDate + " - " + message.author.username + " !persona, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'pripri':
+ 		randomNumber = Math.floor(Math.random()*32);
+ 		img_string = "/Users/Kevin Le/Pictures/pripri/pripri (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !pripri, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'scathach':
+ 		randomNumber = Math.floor(Math.random()*38);
+ 		img_string = "/Users/Kevin Le/Pictures/scathach/scathach (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !scathach, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'mashu':
+ 		randomNumber = Math.floor(Math.random()*52);
+ 		img_string = "/Users/Kevin Le/Pictures/mashu/mashu (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !mashu, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'nero':
+ 		randomNumber = Math.floor(Math.random()*20);
+ 		img_string = "/Users/Kevin Le/Pictures/nero/nero (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !nero, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'okita':
+ 		randomNumber = Math.floor(Math.random()*65);
+ 		img_string = "/Users/Kevin Le/Pictures/okita/okita (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !okita, " + img_string);
+ 		message.channel.send({
+ 			file: img_string
+ 		});
+ 		break;
+ 	case prefix + 'nobu':
+ 		randomNumber = Math.floor(Math.random()*61);
+ 		img_string = "/Users/Kevin Le/Pictures/nobu/nobu (" + randomNumber + ").jpg";
+ 		console.log(utcDate + " - " + message.author.username + " !nobu, " + img_string);
  		message.channel.send({
  			file: img_string
  		});
